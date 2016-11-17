@@ -26,7 +26,7 @@ module CustomerFeedback
 
     config.action_mailer.default_url_options = { host: Rails.application.secrets.http_host }
     config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.deliver_later_queue_name = 'customer-feedback-mailer'
+    config.action_mailer.deliver_later_queue_name = 'service-links-mailer'
     config.action_mailer.mailgun_settings = {
       api_key: ENV['MAILGUN_KEY'],
       domain: ENV['MAILGUN_DOMAIN']

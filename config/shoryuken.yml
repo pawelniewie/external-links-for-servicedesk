@@ -7,5 +7,5 @@ aws:
 concurrency: 2
 delay: 10
 queues:
-  - 'customer-feedback'
-  - 'customer-feedback-mailer'
+  - 'service-links'
+  - 'service-links-mailer'
