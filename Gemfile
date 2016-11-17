@@ -62,5 +62,7 @@ source 'https://rubygems.org' do
   gem 'le'
 
   gem 'newrelic_rpm'
+
+  gem 'rails-commons', github: 'pawelniewie/rails-commons', branch: 'master'
 end
 

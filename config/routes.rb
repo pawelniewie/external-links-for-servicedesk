@@ -8,15 +8,4 @@ Rails.application.routes.draw do
   get '/configuration', to: 'configuration#show'
 
   resources :project_configurations, only: [:edit, :update], param: :project_id
-
-  resources :subscriptions, only: [:destroy]
-
-  namespace :typeform do
-    resources :results, only: [:create]
-  end
-
-  namespace :servicedesk do
-    resources :results, only: [:create]
-  end
-
 end
