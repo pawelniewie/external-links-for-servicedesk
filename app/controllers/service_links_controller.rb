@@ -8,6 +8,17 @@ class ServiceLinksController < ApplicationController
 
   def index
     @project ||= jira_gateway.project(params[:project_id])
+
+    respond_to do |format|
+      format.html {}
+      format.json do
+        render json: []
+      end
+    end
+  end
+
+  def create
+
   end
 
   private

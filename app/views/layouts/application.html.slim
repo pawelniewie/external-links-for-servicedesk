@@ -1,7 +1,12 @@
 doctype html
 html
   head
-    script src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+    script src="//code.jquery.com/jquery-1.11.3.js"
+    script src="//code.jquery.com/jquery-migrate-1.4.1.js"
+
+    link href = 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css'
+
+    script src = 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'
 
     / AUI
     link href = '//aui-cdn.atlassian.com/aui-adg/#{aui_version}/css/aui.min.css' media = 'all' rel = 'stylesheet'
@@ -11,6 +16,9 @@ html
     script src = '//aui-cdn.atlassian.com/aui-adg/#{aui_version}/js/aui-experimental.min.js'
 
     meta name = 'token' content = create_session_token
+    meta name = 'base_url' content="#{params[:xdm_e]}#{params[:cp]}"
+
+    = yield :head
 
     = render 'connect-loader'
 

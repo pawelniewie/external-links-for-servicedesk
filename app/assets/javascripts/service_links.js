@@ -1,28 +1,32 @@
 $(function() {
+  var base_url = $('meta[name=base_url]').attr('content');
+  var project_id = $('meta[name=project_id]').attr('content');
+  var token = $('meta[name=token]').attr('content');
+
   new AJS.RestfulTable({
     autoFocus: true,
     el: jQuery("#service_links_table"),
     allowReorder: true,
     resources: {
-      all: "rest/project/HSP/versions?expand=operations",
-      self: "rest/version"
+      all: '/projects/' + project_id + '/service_links.json?jwt=' + token,
+      self: '/projects/' + project_id + '/service_links.json?jwt=' + token
     },
     columns: [
       {
-        id: "status",
-        header: ""
+        id: "label",
+        header: 'Label'
       },
       {
-        id: "name",
-        header: AJS.I18n.getText("common.words.name")
+        id: "href",
+        header: 'Address'
       },
       {
-        id: "description",
-        header: AJS.I18n.getText("common.words.description")
+        id: "color",
+        header: 'Color'
       },
       {
-        id: "releaseDate",
-        header: AJS.I18n.getText("version.releasedate")
+        id: 'title',
+        header: 'Title'
       }
     ]
   });
