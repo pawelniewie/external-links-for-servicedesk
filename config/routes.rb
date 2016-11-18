@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   post '/uninstalled', to: 'lifecycle#uninstalled'
 
   resources :projects, only: [] do
-    resources :service_links
+    resources :service_links do
+      member do
+        post :move
+      end
+    end
   end
 end
