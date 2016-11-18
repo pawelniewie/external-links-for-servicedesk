@@ -24,6 +24,18 @@ class ServiceLinksController < ApplicationController
     render json: service_link
   end
 
+  def update
+    current_jwt_auth.service_links
+      .find_by(params.permit(:project_id, :id))
+      .update(params.require(:service_link).permit(:label, :name, :href, :title, :color))
+
+    render json: current_jwt_auth.service_links.find_by(params.permit(:project_id, :id))
+  end
+
+  def destroy
+    current_jwt_auth.service_links.where(params.permit(:project_id, :id)).destroy_all
+  end
+
   private
 
   def jira_gateway
