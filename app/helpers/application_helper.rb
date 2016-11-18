@@ -1,6 +1,10 @@
 module ApplicationHelper
   include AtlassianJwtAuthentication
 
+  def aui_version
+    '6.0.2'
+  end
+
   def create_session_token
     issued_at = Time.now.utc.to_i
 

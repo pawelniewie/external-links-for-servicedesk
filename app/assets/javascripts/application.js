@@ -1,3 +1,1 @@
-$(function() {
-    AP.resize();
-});
+//= require service_links

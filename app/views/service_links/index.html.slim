@@ -1,82 +1,13 @@
-doctype html
-html
-  head
-    script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' 
+section#content class='ac-content'
+  header.aui-page-header
+    .aui-page-header-inner
+      .aui-page-header-main
+        h1 Configure service links
 
-    /! AUI
-    link href='//aui-cdn.atlassian.com/aui-adg/5.9.19/css/aui.min.css' media='all' rel='stylesheet'
-    script src='//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui.min.js' 
+      a.aui-button.back-to-product href="#{current_jwt_auth.base_url}/secure/project/EditProject!default.jspa?pid=#{@project.id}" tabindex="0" resolved=""
+        | Back to #{@project.name}
 
-    meta name='token' content=create_session_token
-
-    = render 'connect-loader'
-
-    = render 'analytics'
-
-    javascript:
-      $(function () {
-        $('#configure').on('submit', function (e) {
-          var meta = {};
-          ['ap-local-base-url', 'token'].forEach(function (name) {
-            meta[name] = $('meta[name=' + name + ']').attr("content");
-          });
-
-          e.preventDefault();
-
-          $.ajax(window.location, {
-            headers: {
-              'Authorization': 'JWT ' + meta.token
-            },
-            dataType: 'json',
-            type: 'PUT',
-            data: $(this).serialize(),
-            error: function () {
-              AP.require("messages", function (messages) {
-                //create a message
-                var message = messages.error('Ups!', 'Something went wrong. Please reload the page and try again.');
-                setTimeout(function () {
-                  messages.clear(message);
-                }, 2000);
-              });
-            },
-            success: function (response) {
-              AP.require("messages", function (messages) {
-                //create a message
-                var message = messages.success('Success!', 'Happy to save that for you!');
-                setTimeout(function () {
-                  messages.clear(message);
-                }, 2000);
-              });
-            }
-          });
-        });
-      });
-
-  body
-    section#content class='ac-content'
-      header.aui-page-header
-        .aui-page-header-inner
-          .aui-page-header-main
-            h1 Configure service links
-
-          a.aui-button.back-to-product href="#{current_jwt_auth.base_url}/secure/project/EditProject!default.jspa?pid=#{@project.id}" tabindex="0" resolved=""
-            | Back to #{@project.name}
-
-      .aui-page-panel
-        .aui-page-panel-inner
-          section.aui-page-panel-content
-            p
-              | Connect your JIRA Service Desk with
-              a href: 'https://promoter.io'  Promoter.io
-              | to survey your customers.
-
-            form.aui#configure
-              .field-group
-                label for: 'promoter_token'  Promoter.io token
-                input.text#promoter_token name: 'promoter_token', type: 'text', value: promoter_token 
-                .description
-                  | Get it from your Profile menu &rarr; API
-
-              .buttons-container
-                .buttons
-                  input.button.submit#save-button type: 'submit', value: 'Save' 
+  .aui-page-panel
+    .aui-page-panel-inner
+      section.aui-page-panel-content
+        #service_links_table
