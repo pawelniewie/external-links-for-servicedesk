@@ -12,13 +12,16 @@ class ServiceLinksController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json do
-        render json: []
+        render json: current_jwt_auth.service_links.where(project_id: params[:project_id])
       end
     end
   end
 
   def create
+    service_link = current_jwt_auth.service_links.create!(
+      params.require(:service_link).permit(:label, :name, :href, :title, :color).merge(params.permit(:project_id)))
 
+    render json: service_link
   end
 
   private
