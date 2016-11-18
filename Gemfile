@@ -51,8 +51,9 @@ source 'https://rubygems.org' do
   gem 'nokogiri'
   gem 'shoryuken'
 
-  gem 'haml'
   gem 'slim'
+
+  gem 'recursive-open-struct'
 
   gem 'attr_encrypted'
 

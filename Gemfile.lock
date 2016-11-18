@@ -106,8 +106,6 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    haml (4.0.7)
-      tilt
     hitimes (1.2.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -192,6 +190,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    recursive-open-struct (1.0.1)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rest-client (2.0.0)
@@ -252,7 +251,6 @@ DEPENDENCIES
   addressable!
   atlassian-jwt-authentication!
   attr_encrypted!
-  haml!
   jbuilder (~> 2.0)!
   le!
   listen (~> 3.0.5)!
@@ -265,6 +263,7 @@ DEPENDENCIES
   rails (>= 5.0.0.rc1, < 5.1)!
   rails-commons!
   react-rails!
+  recursive-open-struct!
   responders!
   roadie-rails!
   sass-rails!

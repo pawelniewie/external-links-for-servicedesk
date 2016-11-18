@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/installed', to: 'lifecycle#installed'
   post '/uninstalled', to: 'lifecycle#uninstalled'
 
-  get '/configuration', to: 'configuration#show'
-
-  resources :project_configurations, only: [:edit, :update], param: :project_id
+  resources :projects, only: [] do
+    resources :service_links
+  end
 end

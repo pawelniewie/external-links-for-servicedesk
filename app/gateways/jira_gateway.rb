@@ -27,6 +27,16 @@ class JiraGateway
       })
     end
 
+    def project(project_id)
+      response = self.class.get_with_jwt("/rest/api/2/project/#{project_id}", {
+        current_jwt_auth: @current_jwt_auth
+      })
+
+      if response.success?
+        RecursiveOpenStruct.new response.parsed_response
+      end
+    end
+
     def internal_comment(issue_id_or_key, comment)
       self.class.post_with_jwt("/rest/servicedeskapi/request/#{issue_id_or_key}/comment", {
         current_jwt_auth: @current_jwt_auth,
