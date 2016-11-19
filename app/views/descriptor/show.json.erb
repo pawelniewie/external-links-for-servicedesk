@@ -32,30 +32,15 @@
         "url": "/projects/{project.id}/service_links"
       }
     ],
-    "jiraEntityProperties": [
+    "webPanels": [
       {
+        "key": "service-links-panel",
+        "url": "/projects/{project.id}/service_links",
+        "location": "atl.jira.view.issue.right.context",
+        "weight": 10,
         "name": {
-          "value": "Customer Feedback"
-        },
-        "entityType": "issue",
-        "key": "customer-feedback-entity-property",
-        "keyConfigurations": [
-          {
-            "propertyKey": "customer-feedback",
-            "extractions": [
-              {
-                "objectName": "rating",
-                "type": "number",
-                "alias": "customerFeedbackRating"
-              },
-              {
-                "objectName": "comment",
-                "type": "text",
-                "alias": "customerFeedbackComment"
-              }
-            ]
-          }
-        ]
+          "value": "Service links"
+        }
       }
     ]
   }
