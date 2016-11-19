@@ -43,34 +43,11 @@ class ServiceLinksController < ApplicationController
   end
 
   def move
-    ServiceLink.transaction do
-      service_link = current_jwt_auth.service_links.find(params[:id])
-      service_links = current_jwt_auth.service_links.where(project_id: service_link.project_id).ordered
+    service_link = current_jwt_auth.service_links.find(params[:id])
 
-      new_order = []
-
-      as_first = params[:position] == 'First'
-      after_id = params[:after]
-      if after_id
-        after_id = after_id[/\/(\d)+\z/, 1].to_i
-      end
-
-      if as_first
-        new_order << service_link
-      end
-
-      service_links.each do |sl|
-        if sl.id != service_link.id
-          new_order << sl
-        end
-
-        if !as_first && after_id && sl.id == after_id
-          new_order << service_link
-        end
-      end
-
-      new_order.each_with_index { |sl, idx| sl.update!(position: idx) }
-    end
+    ReorderModelsService.new(ServiceLink,
+      service_link,
+      current_jwt_auth.service_links.where(project_id: service_link.project_id).ordered).call(params)
   end
 
   private
