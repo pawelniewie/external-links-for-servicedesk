@@ -22,10 +22,6 @@ $(function() {
       {
         id: "color",
         header: 'Color'
-      },
-      {
-        id: 'title',
-        header: 'Title'
       }
     ]
   });

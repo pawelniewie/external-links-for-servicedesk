@@ -6,11 +6,17 @@ class ServiceLinksController < ApplicationController
     controller.send(:verify_jwt, PluginKeyService::PLUGIN_KEY)
   end
 
+  before_action :detect_panel
+
   def index
     @project ||= jira_gateway.project(params[:project_id])
 
     respond_to do |format|
-      format.html {}
+      format.html do |html|
+        html.panel do
+          @service_links ||= current_jwt_auth.service_links.where(project_id: params[:project_id]).ordered
+        end
+      end
       format.json do
         render json: current_jwt_auth.service_links.where(project_id: params[:project_id]).ordered
       end
@@ -71,6 +77,10 @@ class ServiceLinksController < ApplicationController
 
   def jira_gateway
     JiraGateway.new(current_jwt_auth)
+  end
+
+  def detect_panel
+    request.variant = :panel if params.has_key?(:xdm_c) && params[:xdm_c].end_with?('service-links-panel')
   end
 
 end
