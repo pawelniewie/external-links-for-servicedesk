@@ -14,7 +14,10 @@ class ServiceLinksController < ApplicationController
     respond_to do |format|
       format.html do |html|
         html.panel do
-          @service_links ||= current_jwt_auth.service_links.where(project_id: params[:project_id]).ordered
+          @issue ||= jira_gateway.issue(params[:issue_id])
+          @service_links ||= ServiceLinkDecorator.decorate_collection(
+            current_jwt_auth.service_links.where(project_id: params[:project_id]).ordered,
+            context: {issue: @issue})
         end
       end
       format.json do

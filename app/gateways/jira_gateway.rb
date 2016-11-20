@@ -37,27 +37,14 @@ class JiraGateway
       end
     end
 
-    def internal_comment(issue_id_or_key, comment)
-      self.class.post_with_jwt("/rest/servicedeskapi/request/#{issue_id_or_key}/comment", {
-        current_jwt_auth: @current_jwt_auth,
-        headers: {
-          'Content-Type' => 'application/json'
-        },
-        body: {
-          body: comment,
-          public: false,
-        }.to_json
+    def issue(issue_id_or_key)
+      response = self.class.get_with_jwt("/rest/api/2/issue/#{issue_id_or_key}", {
+        current_jwt_auth: @current_jwt_auth
       })
-    end
 
-    def entity(issue_id_or_key, entity_key, entity_body)
-      self.class.put_with_jwt("/rest/api/2/issue/#{issue_id_or_key}/properties/#{entity_key}", {
-        current_jwt_auth: @current_jwt_auth,
-        headers: {
-          'Content-Type' => 'application/json'
-        },
-        body: entity_body.to_json
-      })
+      if response.success?
+        RecursiveOpenStruct.new response.parsed_response
+      end
     end
   end
 end

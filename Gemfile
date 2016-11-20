@@ -66,6 +66,10 @@ source 'https://rubygems.org' do
 
   gem 'newrelic_rpm'
 
+  gem 'handlebars'
+
+  gem 'draper', '~> 3.0.0.pre1'
+
   gem 'rails-commons', github: 'pawelniewie/rails-commons', branch: 'master'
 end
 
