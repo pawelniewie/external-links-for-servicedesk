@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/pawelniewie/bottled_services.git
+  revision: 2c5db049a6738f9a417fe056bcd9cbd98a5f7f9b
+  branch: master
+  specs:
+    bottled_services (0.1.3)
+
+GIT
   remote: git://github.com/pawelniewie/rails-commons.git
   revision: b4c8eeb65b1f829434a386ef2915be0b7732452b
   branch: master
@@ -251,6 +258,7 @@ DEPENDENCIES
   addressable!
   atlassian-jwt-authentication!
   attr_encrypted!
+  bottled_services!
   jbuilder (~> 2.0)!
   le!
   listen (~> 3.0.5)!

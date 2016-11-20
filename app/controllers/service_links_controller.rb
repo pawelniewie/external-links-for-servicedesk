@@ -45,9 +45,11 @@ class ServiceLinksController < ApplicationController
   def move
     service_link = current_jwt_auth.service_links.find(params[:id])
 
-    ReorderModelsService.new(ServiceLink,
-      service_link,
-      current_jwt_auth.service_links.where(project_id: service_link.project_id).ordered).call(params)
+    ReorderModelsService.(
+      transaction_guard: ServiceLink,
+      moved_object: service_link,
+      all_objects: current_jwt_auth.service_links.where(project_id: service_link.project_id).ordered.to_a,
+      params: params)
   end
 
   private

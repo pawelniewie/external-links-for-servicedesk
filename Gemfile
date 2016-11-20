@@ -59,6 +59,8 @@ source 'https://rubygems.org' do
 
   gem 'addressable'
 
+  gem 'bottled_services', github: 'pawelniewie/bottled_services', branch: 'master'
+
   # LogEntry
   gem 'le'
 
