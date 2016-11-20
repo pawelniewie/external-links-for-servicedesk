@@ -28,7 +28,7 @@ class ServiceLinksController < ApplicationController
 
   def create
     service_link = current_jwt_auth.service_links.create!(
-      params.require(:service_link).permit(:label, :name, :href, :title, :color).merge(params.permit(:project_id)))
+      params.require(:service_link).permit(:label, :name, :href, :title, :icon).merge(params.permit(:project_id)))
 
     render json: service_link
   end
@@ -36,7 +36,7 @@ class ServiceLinksController < ApplicationController
   def update
     current_jwt_auth.service_links
       .find_by(params.permit(:project_id, :id))
-      .update(params.require(:service_link).permit(:label, :name, :href, :title, :color))
+      .update(params.require(:service_link).permit(:label, :name, :href, :title, :icon))
 
     render json: current_jwt_auth.service_links.find_by(params.permit(:project_id, :id))
   end

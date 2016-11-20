@@ -1,3 +1,6 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 .aui-button.back-to-product {
   position: absolute;
   right: 20px;
@@ -6,4 +9,10 @@
 
 body.service_links {
   background-color: #fff;
+
+  a.aui-button {
+    .fa {
+      margin-right: 5px;
+    }
+  }
 }

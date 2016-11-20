@@ -20,8 +20,8 @@ $(function() {
         header: 'Address'
       },
       {
-        id: "color",
-        header: 'Color'
+        id: "icon",
+        header: 'Icon'
       }
     ]
   });

@@ -18,7 +18,12 @@ section#content class='ac-content'
           b>
             | {{key}}
           ' syntax. You can get a list of fields available from
-          a href="https://docs.atlassian.com/jira/REST/cloud/#api/2/issue-getIssue" target='_blank' get issue REST API
+          a> href="https://docs.atlassian.com/jira/REST/cloud/#api/2/issue-getIssue" target='_blank' get issue REST API
+          ' Get an icon name from
+          a> href="http://fontawesome.io/icons/" target='_blank' Font Awesome
+          ' without
+          b fa
+          | .
 
         p Examples
 
@@ -27,17 +32,22 @@ section#content class='ac-content'
             tr
               th Label
               th Address
+              th Icon
           tbody
             tr
               td
                 | Check servers
               td
                 | http://status.teamtreehouse.com
+              td
+                | server
             tr
               td
                 | Search for {{fields.reporter.name}}
               td
                 | https://google.com?q={{{encodeURIComponent fields.customfield_10000}}}
+              td
+                | google
 
 
         table#service_links_table

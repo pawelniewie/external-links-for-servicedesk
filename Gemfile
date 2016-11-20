@@ -68,8 +68,9 @@ source 'https://rubygems.org' do
 
   gem 'handlebars'
 
+  gem 'font-awesome-sass', '~> 4.7.0'
+
   gem 'draper', '~> 3.0.0.pre1'
 
   gem 'rails-commons', github: 'pawelniewie/rails-commons', branch: 'master'
 end
-

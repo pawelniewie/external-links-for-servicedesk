@@ -122,6 +122,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     handlebars (0.8.0)
@@ -281,6 +283,7 @@ DEPENDENCIES
   attr_encrypted!
   bottled_services!
   draper (~> 3.0.0.pre1)!
+  font-awesome-sass (~> 4.7.0)!
   handlebars!
   jbuilder (~> 2.0)!
   le!

@@ -1,6 +1,6 @@
 class ServiceLinkDecorator < Draper::Decorator
 
-  delegate :color
+  delegate :icon
 
   def label
     render(object.label)
@@ -8,6 +8,12 @@ class ServiceLinkDecorator < Draper::Decorator
 
   def href
     render(object.href)
+  end
+
+  def icon_class
+    if object.icon.present?
+      "fa fa-#{object.icon}"
+    end
   end
 
   private
