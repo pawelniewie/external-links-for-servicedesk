@@ -3,7 +3,6 @@ class ServiceLink < ApplicationRecord
 
   validates :label, presence: true
   validates :href, presence: true
-  validates :color, presence: true
   validates :project_id, presence: true
 
   before_create :set_position

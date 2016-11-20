@@ -1,5 +1,4 @@
-ul
-  - @service_links.each do |sl|
-    li
-      a.aui-button href=sl.href target='_parent'
-        = sl.label
+- @service_links.each do |sl|
+  - if sl.href.present? && sl.label.present?
+    a.aui-button href=sl.href target='_parent' style=("background-color: #{sl.color}" if sl.color.present?)
+      = sl.label

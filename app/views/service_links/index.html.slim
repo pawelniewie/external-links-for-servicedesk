@@ -30,9 +30,14 @@ section#content class='ac-content'
           tbody
             tr
               td
-                | {{key}}
+                | Check servers
               td
-                | http://g  oogle.com/?q={{fields.reporter.emailAddress}}+{{fields.customfield_10500}}
+                | http://status.teamtreehouse.com
+            tr
+              td
+                | Search for {{fields.reporter.name}}
+              td
+                | https://google.com?q={{{encodeURIComponent fields.customfield_10000}}}
 
 
         table#service_links_table
