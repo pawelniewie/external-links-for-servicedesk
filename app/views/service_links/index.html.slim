@@ -13,4 +13,26 @@ section#content class='ac-content'
   .aui-page-panel
     .aui-page-panel-inner
       section.aui-page-panel-content
+        p
+          ' Configure list of buttons that will be visible on issue page. You can easily refer to viewed issue fields by using
+          b>
+            | {{key}}
+          ' syntax. You can get a list of fields available from
+          a href="https://docs.atlassian.com/jira/REST/cloud/#api/2/issue-getIssue" target='_blank' get issue REST API
+
+        p Examples
+
+        table.aui#service_links_examples
+          thead
+            tr
+              th Label
+              th Address
+          tbody
+            tr
+              td
+                | {{key}}
+              td
+                | http://g  oogle.com/?q={{fields.reporter.emailAddress}}+{{fields.customfield_10500}}
+
+
         table#service_links_table
