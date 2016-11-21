@@ -22,7 +22,7 @@ module CustomerFeedback
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.action_dispatch.default_headers.merge!({'X-Frame-Options' => 'ALLOWALL'})
+    config.action_dispatch.default_headers.merge!({ 'X-Frame-Options' => 'ALLOWALL' })
 
     config.action_mailer.default_url_options = { host: Rails.application.secrets.http_host }
     config.action_mailer.delivery_method = :mailgun
@@ -34,6 +34,7 @@ module CustomerFeedback
 
     config.active_job.queue_adapter = :shoryuken
     config.active_job.queue_name_prefix = Rails.env
+    config.active_job.queue_name = proc { 'service-links' }
 
     config.assets.precompile += ['mailers/survey.css']
   end

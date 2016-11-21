@@ -19,12 +19,16 @@ class JiraGateway
     end
 
     def user(user_key)
-      self.class.get_with_jwt('/rest/api/2/user', {
+      response = self.class.get_with_jwt('/rest/api/2/user', {
         query: {
           key: user_key
         },
         current_jwt_auth: @current_jwt_auth
       })
+
+      if response.success?
+        RecursiveOpenStruct.new response.parsed_response
+      end
     end
 
     def project(project_id)

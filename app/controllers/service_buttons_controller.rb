@@ -49,7 +49,7 @@ class ServiceButtonsController < ApplicationController
     service_link = current_jwt_auth.service_links.find(params[:id])
 
     ReorderModelsService.(
-      transaction_guard: ServiceLink,
+      transaction_guard: ServiceButton,
       moved_object: service_link,
       all_objects: current_jwt_auth.service_links.where(project_id: service_link.project_id).ordered.to_a,
       params: params)
@@ -57,12 +57,8 @@ class ServiceButtonsController < ApplicationController
 
   private
 
-  def jira_gateway
-    JiraGateway.new(current_jwt_auth)
-  end
-
   def detect_panel
-    request.variant = :panel if params.has_key?(:xdm_c) && params[:xdm_c].end_with?('service-links-panel')
+    request.variant = :panel if params.has_key?(:xdm_c) && params[:xdm_c].end_with?('service-buttons-panel')
   end
 
 end

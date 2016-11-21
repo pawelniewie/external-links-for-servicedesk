@@ -1,4 +1,4 @@
-class ServiceLink < ApplicationRecord
+class ServiceButton < ApplicationRecord
   belongs_to :jwt_token
 
   validates :label, presence: true
@@ -12,7 +12,7 @@ class ServiceLink < ApplicationRecord
   private
 
   def set_position
-    self.position = (ServiceLink.where(project_id: self.project_id, jwt_token_id: self.jwt_token_id)
+    self.position = (ServiceButton.where(project_id: self.project_id, jwt_token_id: self.jwt_token_id)
       .maximum(:position) || 0) + 1 unless self.position
   end
 end
