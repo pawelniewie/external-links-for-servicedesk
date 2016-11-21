@@ -1,4 +1,4 @@
-class ServiceLinksController < ApplicationController
+class ServiceButtonsController < ApplicationController
   include AtlassianJwtAuthentication
 
   # will respond with head(:unauthorized) if verification fails

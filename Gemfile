@@ -66,6 +66,7 @@ source 'https://rubygems.org' do
 
   gem 'newrelic_rpm'
 
+  # https://github.com/cowboyd/handlebars.rb
   gem 'handlebars'
 
   gem 'font-awesome-sass', '~> 4.7.0'

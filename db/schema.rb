@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20161120222236) do
     t.string  "display_name"
   end
 
-  create_table "service_links", force: :cascade do |t|
+  create_table "service_buttons", force: :cascade do |t|
     t.text     "label"
     t.text     "href"
     t.datetime "created_at",   null: false
@@ -44,5 +44,5 @@ ActiveRecord::Schema.define(version: 20161120222236) do
     t.index ["jwt_token_id"], name: "index_service_links_on_jwt_token_id", using: :btree
   end
 
-  add_foreign_key "service_links", "jwt_tokens"
+  add_foreign_key "service_buttons", "jwt_tokens"
 end

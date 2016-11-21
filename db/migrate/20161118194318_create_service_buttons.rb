@@ -1,6 +1,6 @@
-class CreateServiceLinks < ActiveRecord::Migration[5.0]
+class CreateServiceButtons < ActiveRecord::Migration[5.0]
   def change
-    create_table :service_links do |t|
+    create_table :service_buttons do |t|
       t.text :label
       t.text :href
       t.text :color

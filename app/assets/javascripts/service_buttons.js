@@ -4,11 +4,11 @@ $(function() {
 
   new AJS.RestfulTable({
     autoFocus: true,
-    el: jQuery("#service_links_table"),
+    el: jQuery("#service_buttons_table"),
     allowReorder: true,
     resources: {
-      all: '/projects/' + project_id + '/service_links.json',
-      self: '/projects/' + project_id + '/service_links'
+      all: '/projects/' + project_id + '/service_buttons.json',
+      self: '/projects/' + project_id + '/service_buttons'
     },
     columns: [
       {
