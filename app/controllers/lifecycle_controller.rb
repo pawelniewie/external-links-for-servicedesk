@@ -5,18 +5,7 @@ class LifecycleController < ApplicationController
   before_action :on_add_on_uninstalled, only: [:uninstalled]
 
   def installed
-    user_key = params[:user_key]
-    user = jira_gateway.user(user_key)
-
-    if user.present?
-      JwtUser.transaction do
-        current_jwt_auth.jwt_users.find_or_create_by(user_key: user_key) do |jwt_user|
-          jwt_user.name = user.name
-          jwt_user.display_name = user.displayName
-          jwt_user.email = user.emailAddress
-        end
-      end
-    end
+    CreateJwtUserJob.set(wait: 5.seconds).perform_later(current_jwt_auth.id, params[:user_key])
 
     head(:no_content)
   end
