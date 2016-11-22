@@ -12,7 +12,7 @@ class JiraGateway
     include HTTParty
     include AtlassianJwtAuthentication::HTTParty
 
-    debug_output
+    # debug_output
 
     parser RecursiveJsonParser
 
