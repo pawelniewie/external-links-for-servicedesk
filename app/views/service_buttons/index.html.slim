@@ -51,3 +51,8 @@ section#content class='ac-content'
 
 
         table#service_buttons_table
+
+        - unless @licensed
+          .aui-message.aui-message-error
+            p.title You don't have an active license
+            p You can configure buttons but you will not be able to see them on issues. Sorry.

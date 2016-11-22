@@ -15,6 +15,8 @@ class ServiceButtonsController < ApplicationController
       project_response.parsed_response
     end
 
+    @licensed = params[:lic] == 'active'
+
     respond_to do |format|
       format.html do |html|
         html.panel do
