@@ -256,6 +256,7 @@ GEM
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
     slop (3.6.0)
+    solid_assert (1.0.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -318,6 +319,7 @@ DEPENDENCIES
   sass-rails!
   shoryuken!
   slim!
+  solid_assert!
   spring!
   spring-watcher-listen (~> 2.0.0)!
   tzinfo-data!

@@ -9,15 +9,23 @@ class ServiceButtonsController < ApplicationController
   before_action :detect_panel
 
   def index
-    @project ||= jira_gateway.project(params[:project_id])
+    @project ||= begin
+      project_response = jira_gateway.project(params[:project_id])
+      assert project_response.success?
+      project_response.parsed_response
+    end
 
     respond_to do |format|
       format.html do |html|
         html.panel do
-          @issue ||= jira_gateway.issue(params[:issue_id])
+          @issue ||= begin
+            issue_response = jira_gateway.issue(params[:issue_id])
+            assert issue_response.success?
+            issue_response.parsed_response
+          end
           @service_buttons ||= ServiceLinkDecorator.decorate_collection(
             current_jwt_auth.service_buttons.where(project_id: params[:project_id]).ordered,
-            context: {issue: @issue})
+            context: { issue: @issue })
         end
       end
       format.json do
@@ -50,9 +58,9 @@ class ServiceButtonsController < ApplicationController
 
     ReorderModelsService.(
       transaction_guard: ServiceButton,
-      moved_object: service_button,
-      all_objects: current_jwt_auth.service_buttons.where(project_id: service_button.project_id).ordered.to_a,
-      params: params)
+        moved_object: service_button,
+        all_objects: current_jwt_auth.service_buttons.where(project_id: service_button.project_id).ordered.to_a,
+        params: params)
   end
 
   private

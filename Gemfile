@@ -78,4 +78,6 @@ source 'https://rubygems.org' do
   gem 'gibbon'
 
   gem 'rails-commons', github: 'pawelniewie/rails-commons', branch: 'master'
+
+  gem 'solid_assert'
 end

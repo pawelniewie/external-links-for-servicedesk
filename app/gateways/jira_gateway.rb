@@ -12,43 +12,44 @@ class JiraGateway
     include HTTParty
     include AtlassianJwtAuthentication::HTTParty
 
-    # debug_output
+    debug_output
+
+    parser RecursiveJsonParser
 
     def initialize(current_jwt_auth)
       @current_jwt_auth = current_jwt_auth
     end
 
     def user(user_key)
-      response = self.class.get_with_jwt('/rest/api/2/user', {
+      self.class.get_with_jwt('/rest/api/2/user', {
         query: {
           key: user_key
         },
         current_jwt_auth: @current_jwt_auth
       })
-
-      if response.success?
-        RecursiveOpenStruct.new response.parsed_response
-      end
     end
 
     def project(project_id)
-      response = self.class.get_with_jwt("/rest/api/2/project/#{project_id}", {
+      self.class.get_with_jwt("/rest/api/2/project/#{project_id}", {
         current_jwt_auth: @current_jwt_auth
       })
+    end
 
-      if response.success?
-        RecursiveOpenStruct.new response.parsed_response
-      end
+    def project_property(project_id, property_key, payload)
+      self.class.put_with_jwt("/rest/api/2/project/#{project_id}/properties/#{property_key}", {
+        current_jwt_auth: @current_jwt_auth,
+        headers: {
+          'Content-Type' => 'application/json'
+        },
+        body: payload.to_json
+      })
     end
 
     def issue(issue_id_or_key)
-      response = self.class.get_with_jwt("/rest/api/2/issue/#{issue_id_or_key}", {
+      self.class.get_with_jwt("/rest/api/2/issue/#{issue_id_or_key}", {
         current_jwt_auth: @current_jwt_auth
       })
-
-      if response.success?
-        RecursiveOpenStruct.new response.parsed_response
-      end
     end
   end
+
 end

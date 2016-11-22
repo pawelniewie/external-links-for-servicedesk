@@ -40,7 +40,21 @@
         "weight": 10,
         "name": {
           "value": "Service buttons"
-        }
+        },
+        "conditions": [
+          {
+            "condition": "user_is_logged_in"
+          },
+          {
+            "condition": "entity_property_equal_to",
+            "params": {
+              "entity": "project",
+              "propertyKey": "<%= project_property_key %>",
+              "objectName": "has_service_buttons",
+              "value": "true"
+            }
+          }
+        ]
       }
     ]
   }
