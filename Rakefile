@@ -3,6 +3,6 @@
 
 require_relative 'config/application'
 
-require "dotenv-heroku/tasks"
+require "dotenv-heroku/tasks" if Rails.env.development?
 
 Rails.application.load_tasks
