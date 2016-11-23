@@ -26,6 +26,11 @@ class ServiceLinkDecorator < Draper::Decorator
     handlebars.register_helper(:encodeURI) do |_, context, _|
       CGI::escape(context)
     end
+    handlebars.register_helper(:customField) do |issue, context, _|
+      @field_names ||= issue.names.to_h.invert
+
+      issue.fields.send(@field_names[context]) || ''
+    end
     template = handlebars.compile(source)
     template.call(context[:issue])
   end

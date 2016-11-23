@@ -21,7 +21,7 @@ class ServiceButtonsController < ApplicationController
       format.html do |html|
         html.panel do
           @issue ||= begin
-            issue_response = jira_gateway.issue(params[:issue_id])
+            issue_response = jira_gateway.issue(params[:issue_id], expand: 'names')
             assert issue_response.success?
             issue_response.parsed_response
           end

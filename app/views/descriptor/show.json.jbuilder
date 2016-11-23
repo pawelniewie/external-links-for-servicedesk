@@ -29,12 +29,18 @@ json.vendor do
 end
 
 json.modules do
-  json.generalPages do
+  json.jiraProjectAdminTabPanels do
     json.array! [{
       key: "service-buttons-project-configuration",
-      location: "atl.jira.proj.config/projectgroup4",
+      location: "projectgroup4",
       name: "Service Buttons",
-      url: "/projects/{project.id}/service_buttons"
+      url: "/projects/{project.id}/service_buttons",
+      conditions: {
+        or: {
+          user_is_project_admin: {},
+          user_is__admin: {}
+        }
+      }
     }] do |generalPage|
       json.key generalPage[:key]
       json.location generalPage[:location]
@@ -42,6 +48,7 @@ json.modules do
         json.value generalPage[:name]
       end
       json.url generalPage[:url]
+      json.partial! 'conditions', conditions: generalPage[:conditions]
     end
   end
 
@@ -70,16 +77,7 @@ json.modules do
       json.name do
         json.value webPanel[:name]
       end
-      json.conditions do
-        json.array! webPanel[:conditions].each_pair do |condition, params|
-          next if condition == :addon_is_licensed
-
-          json.condition condition
-          if params.present?
-            json.set! :params, params
-          end
-        end
-      end
+      json.partial! 'conditions', conditions: webPanel[:conditions]
     end
   end
 end

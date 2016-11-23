@@ -5,10 +5,7 @@ section#content class='ac-content'
   header.aui-page-header
     .aui-page-header-inner
       .aui-page-header-main
-        h1 Configure service buttons
-
-      a.aui-button.back-to-product href="#{current_jwt_auth.base_url}/secure/project/EditProject!default.jspa?pid=#{@project.id}" tabindex="0" resolved="" target='_parent'
-        | Back to #{@project.name}
+        h3 Configure service buttons
 
   .aui-page-panel
     .aui-page-panel-inner
@@ -43,11 +40,18 @@ section#content class='ac-content'
                 | server
             tr
               td
-                | Search for {{fields.reporter.name}}
+                | Google customer
               td
-                | https://google.com?q={{{encodeURIComponent fields.customfield_10000}}}
+                | https://google.com?q={{{encodeURI fields.reporter.displayName}}}
               td
                 | google
+            tr
+              td
+                | Tweet to customer
+              td
+                | https://twitter.com/intent/tweet?text={{encodeURI (customField "Twitter")}}
+              td
+                | twitter
 
 
         table#service_buttons_table

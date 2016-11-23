@@ -45,9 +45,10 @@ class JiraGateway
       })
     end
 
-    def issue(issue_id_or_key)
+    def issue(issue_id_or_key, query = {})
       self.class.get_with_jwt("/rest/api/2/issue/#{issue_id_or_key}", {
-        current_jwt_auth: @current_jwt_auth
+        current_jwt_auth: @current_jwt_auth,
+        query: query
       })
     end
   end
