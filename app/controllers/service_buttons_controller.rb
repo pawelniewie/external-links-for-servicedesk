@@ -8,6 +8,9 @@ class ServiceButtonsController < ApplicationController
 
   before_action :detect_panel
 
+  rescue_from ActionController::ParameterMissing, with: :show_errors
+  rescue_from ActiveRecord::RecordInvalid, with: :show_errors
+
   def index
     @project ||= begin
       project_response = jira_gateway.project(params[:project_id])
@@ -46,7 +49,7 @@ class ServiceButtonsController < ApplicationController
   def update
     current_jwt_auth.service_buttons
       .find_by(params.permit(:project_id, :id))
-      .update(params.require(:service_button).permit(:label, :name, :href, :title, :icon))
+      .update!(params.require(:service_button).permit(:label, :name, :href, :title, :icon))
 
     render json: current_jwt_auth.service_buttons.find_by(params.permit(:project_id, :id))
   end
@@ -71,4 +74,15 @@ class ServiceButtonsController < ApplicationController
     request.variant = :panel if params.has_key?(:xdm_c) && params[:xdm_c].end_with?('service-buttons-panel')
   end
 
+  def show_errors(exception)
+    errors = {}
+
+    if exception.present? && exception.is_a?(ActiveRecord::RecordInvalid)
+      exception.record.errors.messages.each_pair { |field, messages| errors[field] = messages * ", " }
+    end
+
+    render json: {
+      errors: errors
+    }, status: 400
+  end
 end

@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        service_button:
+          attributes:
+            label:
+              blank: "Please provide label"
+            href:
+              blank: "Please provide address"
