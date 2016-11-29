@@ -12,12 +12,7 @@ class ServiceButtonsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :show_errors
 
   def index
-    @project ||= begin
-      project_response = jira_gateway.project(params[:project_id])
-      assert project_response.success?
-      project_response.parsed_response
-    end
-
+    @project_id = params[:project_id].to_i
     @licensed = params[:lic] == 'active'
 
     respond_to do |format|
@@ -29,12 +24,12 @@ class ServiceButtonsController < ApplicationController
             issue_response.parsed_response
           end
           @service_buttons ||= ServiceLinkDecorator.decorate_collection(
-            current_jwt_auth.service_buttons.where(project_id: params[:project_id]).ordered,
+            current_jwt_auth.service_buttons.where(project_id: @project_id).ordered,
             context: { issue: @issue })
         end
       end
       format.json do
-        render json: current_jwt_auth.service_buttons.where(project_id: params[:project_id]).ordered
+        render json: current_jwt_auth.service_buttons.where(project_id: @project_id).ordered
       end
     end
   end
