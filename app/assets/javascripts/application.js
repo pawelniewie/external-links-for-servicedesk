@@ -1,5 +1,7 @@
 //= require_self
-//= require service_buttons.js
+//= require service_buttons
+//= require error_reporting
+
 $(function() {
   var token = $('meta[name=token]').attr('content');
   if (token) {

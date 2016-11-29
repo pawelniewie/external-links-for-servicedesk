@@ -82,4 +82,6 @@ source 'https://rubygems.org' do
   gem 'solid_assert'
 
   gem 'rails_12factor', group: :production
+
+  gem "bugsnag"
 end
