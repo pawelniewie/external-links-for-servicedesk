@@ -9,6 +9,4 @@ $(function() {
       headers: { 'Authorization': 'JWT ' + token }
     });
   }
-
-  AP.resize(); // needed to reflow content
 });
