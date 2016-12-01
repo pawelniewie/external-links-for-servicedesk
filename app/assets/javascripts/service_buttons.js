@@ -2,7 +2,7 @@ $(function() {
   var base_url = $('meta[name=base_url]').attr('content');
   var project_id = $('meta[name=project_id]').attr('content');
 
-  new AJS.RestfulTable({
+  var service_buttons_table = new AJS.RestfulTable({
     autoFocus: true,
     el: jQuery("#service_buttons_table"),
     allowReorder: true,
@@ -25,4 +25,7 @@ $(function() {
       }
     ]
   });
+
+  service_buttons_table.bind(AJS.RestfulTable.Events.ROW_INITIALIZED, AP.resize.bind(AP));
+  service_buttons_table.bind(AJS.RestfulTable.Events.INITIALIZED, AP.resize.bind(AP));
 });
