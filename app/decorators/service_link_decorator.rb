@@ -21,10 +21,10 @@ class ServiceLinkDecorator < Draper::Decorator
   def render(source)
     handlebars = Handlebars::Context.new
     handlebars.register_helper(:encodeURIComponent) do |_, context, _|
-      CGI::escape_element(context)
+      CGI::escape_element(context || '')
     end
     handlebars.register_helper(:encodeURI) do |_, context, _|
-      CGI::escape(context)
+      CGI::escape(context || '')
     end
     handlebars.register_helper(:customField) do |issue, context, _|
       @field_names ||= issue.names.to_h.invert
