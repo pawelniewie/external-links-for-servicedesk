@@ -4,3 +4,10 @@
       - if sl.icon_class.present?
         span class=sl.icon_class
       = sl.label
+
+javascript:
+  $(function() {
+    var $body = $('body');
+
+    AP.resize($body.width(), $body.height())
+  });
