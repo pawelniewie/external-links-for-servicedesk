@@ -15,12 +15,12 @@ html
     link href = '//aui-cdn.atlassian.com/aui-adg/#{aui_version}/css/aui-experimental.min.css' media = 'all' rel = 'stylesheet'
     script src = '//aui-cdn.atlassian.com/aui-adg/#{aui_version}/js/aui-experimental.min.js'
 
+    script id="connect-loader" data-options="sizeToParent:true;" src="#{params[:xdm_e] + params[:cp]}/atlassian-connect/all.js"
+
     meta name = 'token' content = create_session_token
     meta name = 'base_url' content="#{params[:xdm_e]}#{params[:cp]}"
 
     = yield :head
-
-    = render 'connect-loader'
 
     = render 'analytics'
 
