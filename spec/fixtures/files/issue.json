@@ -1,0 +1,338 @@
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "10100",
+    "self": "https://foobaz.atlassian.net/rest/api/2/issue/10100",
+    "key": "IT-1",
+    "names": {
+        "issuetype": "Issue Type",
+        "timespent": "Time Spent",
+        "project": "Project",
+        "fixVersions": "Fix Version/s",
+        "aggregatetimespent": "Σ Time Spent",
+        "resolution": "Resolution",
+        "customfield_10027": "Time to resolution",
+        "customfield_10028": "Time to first response",
+        "resolutiondate": "Resolved",
+        "workratio": "Work Ratio",
+        "lastViewed": "Last Viewed",
+        "watches": "Watchers",
+        "created": "Created",
+        "customfield_10020": "Capture for JIRA URL",
+        "customfield_10021": "Capture for JIRA Screen Resolution",
+        "customfield_10022": "Capture for JIRA jQuery Version",
+        "priority": "Priority",
+        "customfield_10023": "Capture for JIRA Document Mode",
+        "customfield_10100": "Parent Link",
+        "customfield_10024": "Testing status",
+        "customfield_10300": "Organizations",
+        "labels": "Labels",
+        "customfield_10026": "Approvers",
+        "customfield_10016": "Raised during",
+        "customfield_10017": "Capture for JIRA User Agent",
+        "customfield_10018": "Capture for JIRA Browser",
+        "customfield_10019": "Capture for JIRA Operating System",
+        "timeestimate": "Remaining Estimate",
+        "aggregatetimeoriginalestimate": "Σ Original Estimate",
+        "versions": "Affects Version/s",
+        "issuelinks": "Linked Issues",
+        "assignee": "Assignee",
+        "updated": "Updated",
+        "status": "Status",
+        "components": "Component/s",
+        "timeoriginalestimate": "Original Estimate",
+        "description": "Description",
+        "customfield_10010": "Request participants",
+        "customfield_10011": "Satisfaction",
+        "customfield_10012": "Satisfaction date",
+        "timetracking": "Time Tracking",
+        "customfield_10015": "Test sessions",
+        "customfield_10600": "Twitter",
+        "customfield_10007": "Sprint",
+        "customfield_10008": "Rank",
+        "attachment": "Attachment",
+        "customfield_10009": "Customer Request Type",
+        "aggregatetimeestimate": "Σ Remaining Estimate",
+        "summary": "Summary",
+        "creator": "Creator",
+        "subtasks": "Sub-tasks",
+        "reporter": "Reporter",
+        "customfield_10000": "[CHART] Date of First Response",
+        "aggregateprogress": "Σ Progress",
+        "customfield_10001": "[CHART] Time in Status",
+        "customfield_10002": "Approvals",
+        "customfield_10200": "Development",
+        "customfield_10003": "Epic Link",
+        "customfield_10400": "Team",
+        "environment": "Environment",
+        "duedate": "Due Date",
+        "progress": "Progress",
+        "comment": "Comment",
+        "votes": "Votes",
+        "worklog": "Log Work"
+    },
+    "fields": {
+        "issuetype": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/issuetype/10001",
+            "id": "10001",
+            "description": "Created by JIRA Service Desk.",
+            "iconUrl": "https://foobaz.atlassian.net/servicedesk/issue-type-icons?icon=service-request",
+            "name": "Service Request",
+            "subtask": false
+        },
+        "timespent": null,
+        "project": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/project/10100",
+            "id": "10100",
+            "key": "IT",
+            "name": "IT Desk",
+            "avatarUrls": {
+                "48x48": "https://foobaz.atlassian.net/secure/projectavatar?avatarId=10324",
+                "24x24": "https://foobaz.atlassian.net/secure/projectavatar?size=small\u0026avatarId=10324",
+                "16x16": "https://foobaz.atlassian.net/secure/projectavatar?size=xsmall\u0026avatarId=10324",
+                "32x32": "https://foobaz.atlassian.net/secure/projectavatar?size=medium\u0026avatarId=10324"
+            }
+        },
+        "fixVersions": [],
+        "aggregatetimespent": null,
+        "resolution": null,
+        "customfield_10027": {
+            "id": "3",
+            "name": "Time to resolution",
+            "_links": {
+                "self": "https://foobaz.atlassian.net/rest/servicedeskapi/request/10100/sla/3"
+            },
+            "completedCycles": [],
+            "ongoingCycle": {
+                "startTime": {
+                    "iso8601": "2016-11-23T19:45:03+0100",
+                    "jira": "2016-11-23T19:45:03.032+0100",
+                    "friendly": "23/Nov/16 7:45 PM",
+                    "epochMillis": 1479926703032
+                },
+                "breachTime": {
+                    "iso8601": "2016-11-25T09:00:00+0100",
+                    "jira": "2016-11-25T09:00:00.000+0100",
+                    "friendly": "25/Nov/16 9:00 AM",
+                    "epochMillis": 1480060800000
+                },
+                "breached": true,
+                "paused": false,
+                "withinCalendarHours": false,
+                "goalDuration": {
+                    "millis": 28800000,
+                    "friendly": "8h"
+                },
+                "elapsedTime": {
+                    "millis": 374400000,
+                    "friendly": "104h"
+                },
+                "remainingTime": {
+                    "millis": -345600000,
+                    "friendly": "-96h"
+                }
+            }
+        },
+        "customfield_10028": {
+            "id": "4",
+            "name": "Time to first response",
+            "_links": {
+                "self": "https://foobaz.atlassian.net/rest/servicedeskapi/request/10100/sla/4"
+            },
+            "completedCycles": [],
+            "ongoingCycle": {
+                "startTime": {
+                    "iso8601": "2016-11-23T19:45:03+0100",
+                    "jira": "2016-11-23T19:45:03.032+0100",
+                    "friendly": "23/Nov/16 7:45 PM",
+                    "epochMillis": 1479926703032
+                },
+                "breachTime": {
+                    "iso8601": "2016-11-24T13:00:00+0100",
+                    "jira": "2016-11-24T13:00:00.000+0100",
+                    "friendly": "24/Nov/16 1:00 PM",
+                    "epochMillis": 1479988800000
+                },
+                "breached": true,
+                "paused": false,
+                "withinCalendarHours": false,
+                "goalDuration": {
+                    "millis": 14400000,
+                    "friendly": "4h"
+                },
+                "elapsedTime": {
+                    "millis": 374400000,
+                    "friendly": "104h"
+                },
+                "remainingTime": {
+                    "millis": -360000000,
+                    "friendly": "-100h"
+                }
+            }
+        },
+        "resolutiondate": null,
+        "workratio": -1,
+        "lastViewed": null,
+        "watches": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/issue/IT-1/watchers",
+            "watchCount": 0,
+            "isWatching": false
+        },
+        "created": "2016-11-23T19:45:03.032+0100",
+        "customfield_10020": null,
+        "customfield_10021": null,
+        "customfield_10022": null,
+        "priority": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/priority/1",
+            "iconUrl": "https://foobaz.atlassian.net/images/icons/priorities/highest.svg",
+            "name": "Highest",
+            "id": "1"
+        },
+        "customfield_10023": null,
+        "customfield_10100": null,
+        "customfield_10024": "Not started",
+        "customfield_10300": [],
+        "labels": [],
+        "customfield_10026": null,
+        "customfield_10016": null,
+        "customfield_10017": null,
+        "customfield_10018": null,
+        "customfield_10019": null,
+        "timeestimate": null,
+        "aggregatetimeoriginalestimate": null,
+        "versions": [],
+        "issuelinks": [],
+        "assignee": null,
+        "updated": "2016-11-23T21:21:05.738+0100",
+        "status": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/status/10001",
+            "description": "This was auto-generated by JIRA Service Desk during workflow import",
+            "iconUrl": "https://foobaz.atlassian.net/images/icons/status_generic.gif",
+            "name": "Waiting for support",
+            "id": "10001",
+            "statusCategory": {
+                "self": "https://foobaz.atlassian.net/rest/api/2/statuscategory/1",
+                "id": 1,
+                "key": "undefined",
+                "colorName": "medium-gray",
+                "name": "No Category"
+            }
+        },
+        "components": [],
+        "timeoriginalestimate": null,
+        "description": "* You are now looking at an issue in one of your preset queues. This is where your agents work on your end users' requests.\n* On your left hand side are the queues where you can easily see all requests coming from your end users. \n* You can also see what this issue looks like in the Customer Portal by selecting the *View customer request* link to the right.\n\n----\nGot it? Now click *Resolve this issue* and add a comment to complete this request.\n----",
+        "customfield_10010": [],
+        "customfield_10011": null,
+        "customfield_10012": null,
+        "timetracking": {},
+        "customfield_10015": null,
+        "customfield_10600": "@devonsteroids",
+        "customfield_10007": null,
+        "customfield_10008": "0|i0009b:",
+        "attachment": [],
+        "customfield_10009": {
+            "_links": {
+                "jiraRest": "https://foobaz.atlassian.net/rest/api/2/issue/10100",
+                "web": "https://foobaz.atlassian.net/servicedesk/customer/portal/2/IT-1",
+                "self": "https://foobaz.atlassian.net/rest/servicedeskapi/request/10100"
+            },
+            "requestType": {
+                "id": "16",
+                "_links": {
+                    "self": "https://foobaz.atlassian.net/rest/servicedeskapi/servicedesk/2/requesttype/16"
+                },
+                "name": "Get IT help",
+                "description": "Get assistance for general IT problems and questions.",
+                "helpText": "",
+                "serviceDeskId": "2",
+                "groupIds": ["6", "9"],
+                "icon": {
+                    "id": "10527",
+                    "_links": {
+                        "iconUrls": {
+                            "48x48": "https://foobaz.atlassian.net/secure/viewavatar?avatarType=SD_REQTYPE\u0026size=large\u0026avatarId=10527",
+                            "24x24": "https://foobaz.atlassian.net/secure/viewavatar?avatarType=SD_REQTYPE\u0026size=small\u0026avatarId=10527",
+                            "16x16": "https://foobaz.atlassian.net/secure/viewavatar?avatarType=SD_REQTYPE\u0026size=xsmall\u0026avatarId=10527",
+                            "32x32": "https://foobaz.atlassian.net/secure/viewavatar?avatarType=SD_REQTYPE\u0026size=medium\u0026avatarId=10527"
+                        }
+                    }
+                }
+            },
+            "currentStatus": {
+                "status": "Waiting for support",
+                "statusCategory": "UNDEFINED",
+                "statusDate": {
+                    "iso8601": "2016-11-23T19:45:03+0100",
+                    "jira": "2016-11-23T19:45:03.032+0100",
+                    "friendly": "23/Nov/16 7:45 PM",
+                    "epochMillis": 1479926703032
+                }
+            }
+        },
+        "aggregatetimeestimate": null,
+        "summary": "What am I looking at?",
+        "creator": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/user?username=admin",
+            "name": "admin",
+            "key": "admin",
+            "emailAddress": "11110000b@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=48",
+                "24x24": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=24",
+                "16x16": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=16",
+                "32x32": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=32"
+            },
+            "displayName": "Pawel Niewiadomski  [Administrator]",
+            "active": true,
+            "timeZone": "Europe/Berlin"
+        },
+        "subtasks": [],
+        "reporter": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/user?username=admin",
+            "name": "admin",
+            "key": "admin",
+            "emailAddress": "11110000b@gmail.com",
+            "avatarUrls": {
+                "48x48": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=48",
+                "24x24": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=24",
+                "16x16": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=16",
+                "32x32": "https://secure.gravatar.com/avatar/4d67ab9c2524ed087a9a832d4acc9deb?d=mm\u0026s=32"
+            },
+            "displayName": "Pawel Niewiadomski  [Administrator]",
+            "active": true,
+            "timeZone": "Europe/Berlin"
+        },
+        "customfield_10000": null,
+        "aggregateprogress": {
+            "progress": 0,
+            "total": 0
+        },
+        "customfield_10001": null,
+        "customfield_10002": null,
+        "customfield_10200": "{}",
+        "customfield_10003": null,
+        "customfield_10400": null,
+        "environment": null,
+        "duedate": null,
+        "progress": {
+            "progress": 0,
+            "total": 0
+        },
+        "comment": {
+            "comments": [],
+            "maxResults": 0,
+            "total": 0,
+            "startAt": 0
+        },
+        "votes": {
+            "self": "https://foobaz.atlassian.net/rest/api/2/issue/IT-1/votes",
+            "votes": 0,
+            "hasVoted": false
+        },
+        "worklog": {
+            "startAt": 0,
+            "maxResults": 20,
+            "total": 0,
+            "worklogs": []
+        }
+    }
+}

@@ -1,4 +1,4 @@
-class ServiceLinkDecorator < Draper::Decorator
+class ServiceButtonDecorator < Draper::Decorator
 
   delegate :icon
 

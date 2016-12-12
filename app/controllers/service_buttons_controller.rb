@@ -23,7 +23,7 @@ class ServiceButtonsController < ApplicationController
             assert issue_response.success?
             issue_response.parsed_response
           end
-          @service_buttons ||= ServiceLinkDecorator.decorate_collection(
+          @service_buttons ||= ServiceButtonDecorator.decorate_collection(
             current_jwt_auth.service_buttons.where(project_id: @project_id).ordered,
             context: { issue: @issue })
         end
