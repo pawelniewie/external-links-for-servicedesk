@@ -61,7 +61,7 @@ source 'https://rubygems.org' do
 
   gem 'addressable'
 
-  gem 'bottled_services', github: 'pawelniewie/bottled_services', branch: 'master'
+  gem 'bottled_services', git: 'https://github.com/pawelniewie/bottled_services.git', branch: 'master'
 
   # LogEntry
   gem 'le'
@@ -77,7 +77,7 @@ source 'https://rubygems.org' do
 
   gem 'gibbon'
 
-  gem 'rails-commons', github: 'pawelniewie/rails-commons', branch: 'master'
+  gem 'rails-commons', git: 'https://github.com/pawelniewie/rails-commons.git', branch: 'master'
 
   gem 'solid_assert'
 

@@ -1,27 +1,27 @@
 GIT
-  remote: git://github.com/pawelniewie/bottled_services.git
-  revision: 17cc68ddc45ac6988ac643581925a3f91e95e289
+  remote: https://github.com/pawelniewie/atlassian-jwt-authentication.git
+  revision: 7edc4b4d9e502c9b0dd6426640521df7b11da169
   branch: master
   specs:
-    bottled_services (0.1.3)
-
-GIT
-  remote: git://github.com/pawelniewie/rails-commons.git
-  revision: 4543a8ec9bef5c8a4ff16a11f6fb10d55c84b438
-  branch: master
-  specs:
-    rails-commons (0.1.0)
+    atlassian-jwt-authentication (0.1.1)
       builder (>= 2.1.2, < 4.0.0)
       httparty (>= 0.13)
       i18n (>= 0.6.9)
       jwt (~> 1.5)
 
 GIT
-  remote: https://github.com/pawelniewie/atlassian-jwt-authentication.git
-  revision: 7edc4b4d9e502c9b0dd6426640521df7b11da169
+  remote: https://github.com/pawelniewie/bottled_services.git
+  revision: 17cc68ddc45ac6988ac643581925a3f91e95e289
   branch: master
   specs:
-    atlassian-jwt-authentication (0.1.1)
+    bottled_services (0.1.3)
+
+GIT
+  remote: https://github.com/pawelniewie/rails-commons.git
+  revision: 4543a8ec9bef5c8a4ff16a11f6fb10d55c84b438
+  branch: master
+  specs:
+    rails-commons (0.1.0)
       builder (>= 2.1.2, < 4.0.0)
       httparty (>= 0.13)
       i18n (>= 0.6.9)
