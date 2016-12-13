@@ -3,7 +3,7 @@ GIT
   revision: 7edc4b4d9e502c9b0dd6426640521df7b11da169
   branch: master
   specs:
-    atlassian-jwt-authentication (0.1.2)
+    atlassian-jwt-authentication (0.1.1)
       addressable (>= 2.4.0)
       builder (>= 2.1.2, < 4.0.0)
       httparty (>= 0.13)
