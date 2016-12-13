@@ -29,7 +29,14 @@ class ServiceButtonDecorator < Draper::Decorator
     handlebars.register_helper(:customField) do |issue, context, _|
       @field_names ||= issue.names.to_h.invert
 
-      issue.fields.send(@field_names[context]) || ''
+      if @field_names[context].present?
+        issue.fields.send(@field_names[context]) || ''
+      else
+        ''
+      end
+    end
+    handlebars.register_helper(:helperMissing) do |_, context, _|
+      ""
     end
     template = handlebars.compile(source)
     template.call(context[:issue])

@@ -3,6 +3,28 @@ describe ServiceButtonDecorator do
   let(:service_button) { instance_double(ServiceButton) }
   let(:decorator) { ServiceButtonDecorator.new(service_button, context: {issue: issue_payload}) }
 
+  context 'missing variable reference' do
+    describe '#href' do
+      before do
+        expect(service_button).to receive(:href).and_return '{{noSuchVariable}}'
+      end
+
+      it 'should return empty string' do
+        expect(decorator.href).to eq ''
+      end
+    end
+
+    describe '#href with nil' do
+      before do
+        expect(service_button).to receive(:href).and_return '{{fields.timeSpent}}'
+      end
+
+      it 'should return empty string' do
+        expect(decorator.href).to eq ''
+      end
+    end
+  end
+
   context 'invalid custom field reference' do
     describe '#href' do
       before do
@@ -10,7 +32,7 @@ describe ServiceButtonDecorator do
       end
 
       it 'should return empty string' do
-        expect(decorator.href).to be ''
+        expect(decorator.href).to eq ''
       end
     end
 
@@ -20,7 +42,7 @@ describe ServiceButtonDecorator do
       end
 
       it 'should return empty string' do
-        expect(decorator.label).to be ''
+        expect(decorator.label).to eq ''
       end
     end
   end
