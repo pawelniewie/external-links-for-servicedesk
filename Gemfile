@@ -86,4 +86,6 @@ source 'https://rubygems.org' do
   gem 'rails_12factor', group: :production
 
   gem "bugsnag"
+
+  gem 'activerecord-session_store'
 end
