@@ -65,9 +65,6 @@ source 'https://rubygems.org' do
 
   gem 'bottled_services', git: 'https://github.com/pawelniewie/bottled_services.git', branch: 'master'
 
-  # LogEntry
-  gem 'le'
-
   gem 'newrelic_rpm'
 
   # https://github.com/cowboyd/handlebars.rb
