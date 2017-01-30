@@ -80,9 +80,9 @@ source 'https://rubygems.org' do
 
   gem 'solid_assert'
 
-  gem 'rails_12factor', group: :production
-
   gem "bugsnag"
 
   gem 'activerecord-session_store'
+
+  gem 'lograge', group: :production
 end
