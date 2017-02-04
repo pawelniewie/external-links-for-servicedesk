@@ -84,5 +84,7 @@ source 'https://rubygems.org' do
 
   gem 'activerecord-session_store'
 
+  gem "zero_downtime_migrations"
+
   gem 'lograge', group: :production
 end
