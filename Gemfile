@@ -86,5 +86,7 @@ source 'https://rubygems.org' do
 
   gem "zero_downtime_migrations"
 
+  gem 'delayed_job_active_record'
+
   gem 'lograge', group: :production
 end
