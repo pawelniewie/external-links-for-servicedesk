@@ -32,9 +32,7 @@ module CustomerFeedback
       domain: ENV['MAILGUN_DOMAIN']
     }
 
-    config.active_job.queue_adapter = :shoryuken
-    config.active_job.queue_name_prefix = Rails.env
-    config.active_job.queue_name = proc { 'service-links' }
+    config.active_job.queue_adapter = :delayed_job
 
     config.assets.precompile += ['mailers/survey.css']
   end

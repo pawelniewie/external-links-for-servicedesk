@@ -53,7 +53,6 @@ source 'https://rubygems.org' do
   gem 'mailgun_rails'
   gem 'roadie-rails'
   gem 'nokogiri'
-  gem 'shoryuken'
 
   gem 'slim'
 
