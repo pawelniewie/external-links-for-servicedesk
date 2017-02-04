@@ -3,7 +3,7 @@ class ServiceButtonsController < ApplicationController
 
   # will respond with head(:unauthorized) if verification fails
   before_action do |controller|
-    controller.send(:verify_jwt, PluginKeyService::PLUGIN_KEY)
+    controller.send(:verify_jwt, PluginKeyService::PLUGIN_KEY) unless current_jwt_auth
   end
 
   before_action :detect_panel

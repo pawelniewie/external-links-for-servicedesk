@@ -2,4 +2,12 @@
 
 ActiveRecord::SessionStore::Session.serializer = :json
 
-Rails.application.config.session_store :active_record_store, :key => "_sb_#{Rails.env}_session"
+class HeaderSessionStore < ActionDispatch::Session::ActiveRecordStore
+  private
+
+  def set_cookie(request, response, cookie)
+    response.headers[key] = cookie[:value]
+  end
+end
+
+Rails.application.config.session_store HeaderSessionStore, key: "X-Cookie", cookie_only: false
